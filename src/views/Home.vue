@@ -64,7 +64,11 @@ export default {
     },
     deleteItem: function(id) {
       if (id) {
-        db.collection("items")
+        firebase
+          .firestore()
+          .collection("users")
+          .doc(firebase.auth().currentUser.uid)
+          .collection("items")
           .doc(id)
           .delete()
           .catch(function(error) {
