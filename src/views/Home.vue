@@ -24,7 +24,8 @@
 </template>
 
 <script>
-import { db } from "@/main";
+// import { db } from "@/main";
+import firebase, { firestore } from "firebase";
 export default {
   name: "home",
   beforeCreate: function() {
@@ -40,7 +41,11 @@ export default {
     addTodo: function() {
       this.errors = "";
       if (this.myTodo !== "") {
-        db.collection("items")
+        firebase
+          .firestore()
+          .collection("users")
+          .doc(firebase.auth().currentUser.uid)
+          .collection("items")
           .add({
             title: this.myTodo,
             created_at: new Date()

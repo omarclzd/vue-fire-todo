@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import { db } from "@/main";
-import firebase from "firebase";
+import firebase, { firestore } from "firebase";
 import router from "@/router";
 
 Vue.use(Vuex);
@@ -11,7 +11,7 @@ export default new Vuex.Store({
     items: null,
     user: null,
     isAuthenticated: false,
-    userPost: []
+    userItems: []
   },
   getters: {
     getItems: state => {
@@ -24,7 +24,11 @@ export default new Vuex.Store({
   mutations: {
     setItems: state => {
       let items = [];
-      db.collection("items")
+      firebase
+        .firestore()
+        .collection("users")
+        .doc(firebase.auth().currentUser.uid)
+        .collection("items")
         .orderBy("created_at")
         .onSnapshot(snapshot => {
           items = [];
@@ -39,6 +43,9 @@ export default new Vuex.Store({
     },
     setIsAuthenticated(state, payload) {
       state.isAuthenticated = payload;
+    },
+    setUserItems(state, payload) {
+      state.userItems = payload;
     }
   },
   actions: {
