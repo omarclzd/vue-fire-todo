@@ -1,14 +1,19 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>|
-      <router-link to="/join">Join</router-link>|
-      <router-link to="/sign-in">SignIn</router-link>
-    </div>
+  <v-app id="app">
+    <app-navigation></app-navigation>
     <router-view />
-  </div>
+  </v-app>
 </template>
+<script>
+import AppNavigation from "@/components/AppNavigation";
+
+export default {
+  name: "App",
+  components: {
+    AppNavigation
+  }
+};
+</script>
 
 <style>
 #app {
@@ -21,12 +26,10 @@
 #nav {
   padding: 30px;
 }
-
 #nav a {
   font-weight: bold;
   color: #2c3e50;
 }
-
 #nav a.router-link-exact-active {
   color: #42b983;
 }

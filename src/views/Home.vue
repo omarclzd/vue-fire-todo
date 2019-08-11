@@ -1,3 +1,5 @@
+
+  
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
@@ -23,7 +25,6 @@
 
 <script>
 import { db } from "@/main";
-
 export default {
   name: "home",
   beforeCreate: function() {
@@ -76,22 +77,18 @@ export default {
 * {
   box-sizing: border-box;
 }
-
 body,
 html,
 #app {
-  background: #8ac8e5;
+  background: lightgray;
 }
-
 .home {
   width: 300px;
   margin: auto;
 }
-
 #vue-logo {
   width: 100px;
 }
-
 input,
 button {
   border: 0;
@@ -99,11 +96,9 @@ button {
   margin: 0 0 10px;
   padding: 7px;
 }
-
 input {
   font-size: 12px;
 }
-
 button {
   background: #43b823;
   border: 0;
@@ -112,7 +107,6 @@ button {
   font-weight: 700;
   cursor: pointer;
 }
-
 .title {
   font-size: 14px;
   font-weight: 700;
@@ -120,10 +114,10 @@ button {
   margin: 0 0 10px 0;
   border-bottom: 1px solid #666;
 }
-
 #errors {
   background: #a52222;
   color: #fff;
   padding: 5px;
 }
 </style>
+
