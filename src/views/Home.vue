@@ -24,8 +24,7 @@
 </template>
 
 <script>
-// import { db } from "@/main";
-import firebase, { firestore } from "firebase";
+import firebase from "firebase";
 export default {
   name: "home",
   beforeCreate: function() {

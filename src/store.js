@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import { db } from "@/main";
-import firebase, { firestore } from "firebase";
+
+import firebase from "firebase";
 import router from "@/router";
 
 Vue.use(Vuex);
@@ -14,6 +14,9 @@ export default new Vuex.Store({
     userItems: []
   },
   getters: {
+    getUser: state => {
+      return state.user;
+    },
     getItems: state => {
       return state.items;
     },

@@ -16,6 +16,9 @@
       <router-link to="/">
         <v-toolbar-title to="/">{{appTitle}}</v-toolbar-title>
       </router-link>
+      <div v-if="this.$store.getters.getUser">
+        <div>{{ user }}</div>
+      </div>
 
       <v-spacer class="hidden-sm-and-down"></v-spacer>
       <div v-if="!isAuthenticated" class="hidden-sm-and-down">
